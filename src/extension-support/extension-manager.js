@@ -157,13 +157,12 @@ class ExtensionManager {
 
         return new Promise((resolve, reject) => {
             // If we `require` this at the global level it breaks non-webpack targets, including tests
-            try {
-              const ExtensionWorker = require('worker-loader?name=extension-worker.js!./extension-worker');
-              this.pendingExtensions.push({extensionURL, resolve, reject});
-              dispatch.addWorker(new ExtensionWorker());
-            } catch {
-              reject();
-            }
+            /*
+            const ExtensionWorker = require('worker-loader?name=extension-worker.js!./extension-worker');
+            this.pendingExtensions.push({extensionURL, resolve, reject});
+            dispatch.addWorker(new ExtensionWorker());
+            */
+            reject();
         });
     }
 
