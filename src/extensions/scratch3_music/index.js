@@ -12,7 +12,7 @@ const Timer = require('../../util/timer');
  */
 let assetData = {};
 try {
-    assetData = require('./manifest');
+    // assetData = require('./manifest');
 } catch (e) {
     // Non-webpack environment, don't worry about assets.
 }
