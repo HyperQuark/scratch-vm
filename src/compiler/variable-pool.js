@@ -1,5 +1,5 @@
 export class VariablePool {
-  constructor(exclude = []) {
+  constructor({ exclude = [] }) {
     this.exclude = exclude;
     this.charIdx = [0]
   }
