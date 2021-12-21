@@ -18,7 +18,6 @@ const log = require('../util/log');
 const Cast = require('../util/cast');
 const VariablePool = require('./variable-pool');
 const {disableToString} = require('./util');
-const environment = require('./environment');
 
 // Imported for JSDoc types, not to actually use
 // eslint-disable-next-line no-unused-vars
@@ -441,7 +440,7 @@ class JSGenerator {
             return new TypedInput(`listContents(${this.referenceVariable(node.list)})`, TYPE_STRING);
         case 'list.get': {
             const index = this.descendInput(node.index);
-            if (environment.supportsNullishCoalescing) {
+            if (supportsNullishCoalescing) {
                 if (index.isAlwaysNumber()) {
                     return new TypedInput(`(${this.referenceVariable(node.list)}.value[(${index.asNumber()} | 0) - 1] ?? "")`, TYPE_UNKNOWN);
                 }
