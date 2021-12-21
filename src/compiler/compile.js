@@ -15,9 +15,9 @@
  */
 
 const IRGenerator = require('./irgen');
-const WASMGenerator = require('./wasmgen');
+//const WASMGenerator = require('./wasmgen');
 
-const compile = thread => {
+const compile = (thread, WASMGenerator) => {
     const irGenerator = new IRGenerator(thread);
     const ir = irGenerator.generate();
 
